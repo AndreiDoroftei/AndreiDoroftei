@@ -18,9 +18,9 @@ variable "cloudflare_zone_id" {
 }
 
 variable "cloudflare_email" {
-  type    = string
+  type = string
 }
 
 variable "cloudflare_api_key" {
-  type    = string
+  type = string
 }

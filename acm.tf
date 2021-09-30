@@ -10,9 +10,9 @@ resource "aws_acm_certificate" "cert" {
 resource "cloudflare_record" "acm" {
   depends_on = [aws_acm_certificate.cert]
   zone_id    = var.cloudflare_zone_id
-  name = element(tolist(aws_acm_certificate.cert.domain_validation_options), 0).resource_record_name
-  type = element(tolist(aws_acm_certificate.cert.domain_validation_options), 0).resource_record_type
-  value = element(tolist(aws_acm_certificate.cert.domain_validation_options), 0).resource_record_value
+  name       = element(tolist(aws_acm_certificate.cert.domain_validation_options), 0).resource_record_name
+  type       = element(tolist(aws_acm_certificate.cert.domain_validation_options), 0).resource_record_type
+  value      = element(tolist(aws_acm_certificate.cert.domain_validation_options), 0).resource_record_value
   lifecycle {
     ignore_changes = [
       value
@@ -28,10 +28,10 @@ resource "aws_acm_certificate_validation" "cert" {
 
 resource "cloudflare_record" "cname" {
   depends_on = [aws_cloudfront_distribution.s3_distribution]
-  zone_id = var.cloudflare_zone_id
-  name    = var.domain_name
-  value   = aws_cloudfront_distribution.s3_distribution.domain_name
-  type    = "CNAME"
+  zone_id    = var.cloudflare_zone_id
+  name       = var.domain_name
+  value      = aws_cloudfront_distribution.s3_distribution.domain_name
+  type       = "CNAME"
 }
 
 resource "cloudflare_record" "www" {
