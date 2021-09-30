@@ -1,0 +1,5 @@
+/.terraform
+/.terraform.lock.hcl
+/graph-plan.pdf
+/terraform.tfstate
+/terraform.tfstate.backup
