@@ -7,6 +7,12 @@ resource "aws_s3_bucket" "website" {
   }
 }
 
+resource "aws_s3_bucket" "redirect-website" {
+  bucket_prefix            = var.bucket_prefix
+  acl                      = "public_read"
+  redirect_all_requests_to = aws_s3_bucket.website
+}
+
 resource "aws_s3_bucket_policy" "website" {
   bucket = aws_s3_bucket.website.id
   policy = <<POLICY

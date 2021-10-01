@@ -1,4 +1,4 @@
-bucket_prefix      = "doroftei1999-bucket"
+bucket_prefix      = "website-bucket"
 region             = "us-east-1"
 domain_name        = "doroftei.xyz"
 cloudflare_zone_id = "ecab00b9e588e3afb2ebbb76567760ec"
