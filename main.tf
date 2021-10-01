@@ -1,4 +1,10 @@
 terraform {
+  backend "remote" {
+    organization = "doroftei1999"
+    workspaces {
+      name = "cloudfront-aws"
+    }
+  }
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
