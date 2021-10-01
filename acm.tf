@@ -38,6 +38,6 @@ resource "cloudflare_record" "www" {
   depends_on = [aws_cloudfront_distribution.s3_distribution]
   zone_id    = var.cloudflare_zone_id
   name       = "www"
-  value      = aws_cloudfront_distribution.s3_distribution.domain_name
+  value      = var.domain_name
   type       = "CNAME"
 }
