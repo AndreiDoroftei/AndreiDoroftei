@@ -18,9 +18,11 @@ variable "cloudflare_zone_id" {
 }
 
 variable "cloudflare_email" {
-  type = string
+  sensitive = true
+  type      = string
 }
 
 variable "cloudflare_api_key" {
-  type = string
+  sensitive = true
+  type      = string
 }
