@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "website" {
-  bucket_prefix = var.bucket_prefix
+  bucket = var.bucket_name
   acl           = "public-read"
   website {
     index_document = "index.html"
@@ -8,10 +8,10 @@ resource "aws_s3_bucket" "website" {
 }
 
 resource "aws_s3_bucket" "redirect_website" {
-  bucket_prefix = var.bucket_prefix
+  bucket = "www.${var.bucket_name}"
   acl           = "public-read"
   website {
-    redirect_all_requests_to = aws_s3_bucket.website.bucket_regional_domain_name
+  redirect_all_requests_to = var.domain_name
   }
 }
 
