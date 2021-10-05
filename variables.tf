@@ -17,12 +17,10 @@ variable "cloudflare_zone_id" {
   type        = string
 }
 
-variable "cloudflare_email" {
-  sensitive = true
-  type      = string
+data "aws_ssm_parameter" "cloudflare_email" {
+  name = "cloudflare_email"
 }
 
-variable "cloudflare_api_key" {
-  sensitive = true
-  type      = string
+data "aws_ssm_parameter" "cloudflare_api_key" {
+  name = "cloudflare_api_key"
 }

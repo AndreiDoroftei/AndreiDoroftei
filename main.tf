@@ -22,8 +22,8 @@ provider "aws" {
 }
 
 provider "cloudflare" {
-  email   = var.cloudflare_email
-  api_key = var.cloudflare_api_key
+  email   = data.aws_ssm_parameter.cloudflare_email.value
+  api_key = data.aws_ssm_parameter.cloudflare_api_key.value
 }
 
 

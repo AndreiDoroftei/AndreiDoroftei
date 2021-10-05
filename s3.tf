@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "website" {
   bucket = var.bucket_name
-  acl           = "public-read"
+  acl    = "public-read"
   website {
     index_document = "index.html"
     error_document = "error.html"
@@ -9,9 +9,9 @@ resource "aws_s3_bucket" "website" {
 
 resource "aws_s3_bucket" "redirect_website" {
   bucket = "www.${var.bucket_name}"
-  acl           = "public-read"
+  acl    = "public-read"
   website {
-  redirect_all_requests_to = var.domain_name
+    redirect_all_requests_to = var.domain_name
   }
 }
 
